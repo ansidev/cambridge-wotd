@@ -96,7 +96,7 @@ class FacebookChatBotController extends ChatBotController
                     $httpStatusCode = 500;
                     return $wotd['message'];
                 }
-                return '';
+                return $wotd['url'];
             case 'help':
                 return 'Supported commands: ' . implode(', ', $supportedCommands) . '.';
             default:

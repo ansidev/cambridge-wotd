@@ -35,7 +35,6 @@ class WotdServiceImpl implements WotdService
             'meaning' => $wotd_meaning->plaintext,
             'url'     => $wotd_link[0]->href
         ];
-
         return $wotd;
     }
 }
