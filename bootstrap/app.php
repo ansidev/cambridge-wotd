@@ -48,6 +48,11 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->bind(
+    'App\Contracts\WotdService',
+    'App\Services\WotdServiceImpl'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
