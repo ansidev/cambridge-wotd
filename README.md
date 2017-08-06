@@ -1,2 +1,2 @@
-# cambridge-wotd
-Cambridge Word of the day
+# Something of the day
+Something of the day
