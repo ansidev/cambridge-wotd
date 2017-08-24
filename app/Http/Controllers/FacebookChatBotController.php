@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\WotdService;
+use App\Contracts\WotdServiceInterface;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ class FacebookChatBotController extends ChatBotController
     /**
      * Wotd Service
      *
-     * @var WotdService
+     * @var WotdServiceInterface
      */
     private $wotdService;
 
@@ -27,9 +27,9 @@ class FacebookChatBotController extends ChatBotController
     /**
      * Constructor
      *
-     * @param WotdService $wotdService
+     * @param WotdServiceInterface $wotdService
      */
-    public function __construct(WotdService $wotdService)
+    public function __construct(WotdServiceInterface $wotdService)
     {
         $this->wotdService = $wotdService;
     }
@@ -64,6 +64,7 @@ class FacebookChatBotController extends ChatBotController
         $entries = $messageObject['entry'];
         foreach ($entries as $entry) {
             $messaging = $entry['messaging'];
+            $replyMessages = [];
             foreach ($messaging as $message) {
                 $senderId = $message['sender']['id'];
                 $messageData = $message['message'];
@@ -72,10 +73,11 @@ class FacebookChatBotController extends ChatBotController
                     if (null !== $messageText) {
                         $replyMessage = $this->runCommand($messageText);
                         $this->sendReplyMessage($senderId, $replyMessage);
-                        return $replyMessage;
+                        $replyMessages[] = $replyMessage;
                     }
                 }
             }
+            return $replyMessages;
         }
         return response("You 've sent me " . json_encode($request->all()));
     }

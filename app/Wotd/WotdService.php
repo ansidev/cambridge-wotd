@@ -1,10 +1,11 @@
 <?php
-namespace App\Services;
 
-use App\Contracts\WotdService;
+namespace App\Wotd;
+
+use Firebase;
 use Sunra\PhpSimple\HtmlDomParser;
 
-class WotdServiceImpl implements WotdService
+class WotdService implements WotdServiceInterface
 {
     private const WOTD_URL = "http://dictionary.cambridge.org/dictionary/english";
     private const WOTD_HTML_CSS_CLASS = ".wotd-hw";
@@ -21,20 +22,29 @@ class WotdServiceImpl implements WotdService
         if ($html === false) {
             return [
                 'error' => 500,
-                'message' => 'Could not get word of the day. Please contact ansidev@gmail.com for supporting.'
+                'message' => 'Could not get word of the day. Please contact ansidev@gmail.com for supporting.',
             ];
         }
         // Find word of the day
-        $wotd_html    = $html->find(self::WOTD_HTML_CSS_CLASS);
+        $wotd_html = $html->find(self::WOTD_HTML_CSS_CLASS);
         $wotd_meaning = $wotd_html[0]->nextSibling();
-        $wotd_link    = $html->find(self::WOTD_LINK_CSS_CLASS);
+        $wotd_link = $html->find(self::WOTD_LINK_CSS_CLASS);
 
         // Build WOTD object
         $wotd = [
-            'word'    => $wotd_html[0]->plaintext,
+            'word' => $wotd_html[0]->plaintext,
             'meaning' => $wotd_meaning->plaintext,
-            'url'     => $wotd_link[0]->href
+            'url' => $wotd_link[0]->href,
+            'date' => date("Ymd")
         ];
+
         return $wotd;
+    }
+
+    public function getAllWords()
+    {
+        $words = Firebase::get('/wotd/');
+
+        return json_decode($words, true);
     }
 }

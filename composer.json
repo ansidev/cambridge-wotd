@@ -10,7 +10,9 @@
         "vlucas/phpdotenv": "~2.2",
         "sunra/php-simple-html-dom-parser": "^1.5",
         "guzzlehttp/guzzle": "^6.2",
-        "friendsofphp/php-cs-fixer": "^2.3"
+        "friendsofphp/php-cs-fixer": "^2.3",
+        "safestudio/firebase-php": "^1.0",
+        "ucha19871/fb": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

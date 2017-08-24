@@ -19,6 +19,7 @@ $app->get('/', function () use ($app) {
 
 $app->group(['prefix' => 'api/v1'], function ($app) {
     $app->get('wotd', 'WotdController@getWotdAction');
+    $app->get('words', 'WotdController@getWordsAction');
     $app->get('chatbot/facebook/webhook', 'FacebookChatBotController@responseChatBotChallengeAction');
     $app->post('chatbot/facebook/webhook', 'FacebookChatBotController@responseUserMessageAction');
 });

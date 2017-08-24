@@ -2,27 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\WotdService;
-use Illuminate\Http\Request;
-
+use App\Wotd\WotdServiceInterface;
 
 class WotdController extends Controller
 {
     /**
      * Wotd Service
      *
-     * @var WotdService
+     * @var WotdServiceInterface
      */
     private $wotdService;
 
     /**
      * Constructor
      *
-     * @param WotdService $wotdService
+     * @param WotdServiceInterface $wotdService
      */
-    public function __construct(WotdService $wotdService)
+    public function __construct(WotdServiceInterface $wotdService)
     {
         $this->wotdService = $wotdService;
+    }
+
+    /**
+     * Get all english words
+     *
+     * @return mixed
+     */
+    public function getWordsAction()
+    {
+        $wotd = $this->wotdService->getAllWords();
+        $status = 200;
+        if (array_key_exists('error', $wotd)) {
+            $status = $wotd['error'];
+        }
+        return response()->json($wotd, $status);
     }
 
     /**

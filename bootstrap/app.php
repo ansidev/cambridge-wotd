@@ -23,9 +23,11 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
-
+$app->withFacades();
+$app->configure('services');
 // $app->withEloquent();
+
+class_alias(SafeStudio\Firebase\Facades\FirebaseFacades::class, 'Firebase');
 
 /*
 |--------------------------------------------------------------------------
@@ -49,8 +51,8 @@ $app->singleton(
 );
 
 $app->bind(
-    'App\Contracts\WotdService',
-    'App\Services\WotdServiceImpl'
+    'App\Wotd\WotdServiceInterface',
+    'App\Wotd\WotdService'
 );
 
 /*
@@ -86,6 +88,7 @@ $app->bind(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(SafeStudio\Firebase\FirebaseServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
