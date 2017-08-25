@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a03fbe319eeef59e91227ce70e8d9b8",
+    "content-hash": "e5e3d18a8a1c534d90a6e8b27c66229a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -276,16 +276,16 @@
         },
         {
             "name": "gecko-packages/gecko-php-unit",
-            "version": "v2.1",
+            "version": "v2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GeckoPackages/GeckoPHPUnit.git",
-                "reference": "5b9e9622c7efd3b22655270b80c03f9e52878a6e"
+                "reference": "ab525fac9a9ffea219687f261b02008b18ebf2d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/5b9e9622c7efd3b22655270b80c03f9e52878a6e",
-                "reference": "5b9e9622c7efd3b22655270b80c03f9e52878a6e",
+                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/ab525fac9a9ffea219687f261b02008b18ebf2d1",
+                "reference": "ab525fac9a9ffea219687f261b02008b18ebf2d1",
                 "shasum": ""
             },
             "require": {
@@ -294,24 +294,29 @@
             "require-dev": {
                 "phpunit/phpunit": "^4.8.35 || ^5.4.3"
             },
+            "suggest": {
+                "ext-dom": "When testing with xml.",
+                "ext-libxml": "When testing with xml.",
+                "phpunit/phpunit": "This is an extension for it so make sure you have it some way."
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "GeckoPackages\\PHPUnit\\": "src\\PHPUnit"
+                    "GeckoPackages\\PHPUnit\\": "src/PHPUnit"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Additional PHPUnit tests.",
+            "description": "Additional PHPUnit asserts and constraints.",
             "homepage": "https://github.com/GeckoPackages",
             "keywords": [
                 "extension",
                 "filesystem",
                 "phpunit"
             ],
-            "time": "2017-06-20T11:22:48+00:00"
+            "time": "2017-08-23T07:39:54+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2046,16 +2051,16 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "safestudio/firebase-php",
+            "name": "safestudio/firebase-laravel",
             "version": "1.0.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/SafeStudio/firebase-php.git",
+                "url": "https://github.com/SafeStudio/firebase-laravel.git",
                 "reference": "6210c3d9bdf732068a4341486f0577396afd4421"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SafeStudio/firebase-php/zipball/6210c3d9bdf732068a4341486f0577396afd4421",
+                "url": "https://api.github.com/repos/SafeStudio/firebase-laravel/zipball/6210c3d9bdf732068a4341486f0577396afd4421",
                 "reference": "6210c3d9bdf732068a4341486f0577396afd4421",
                 "shasum": ""
             },
@@ -3010,56 +3015,6 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2017-06-24T16:45:30+00:00"
-        },
-        {
-            "name": "ucha19871/fb",
-            "version": "1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/uC137/fb.git",
-                "reference": "6a647bb764b6610b6bae0a435804f4d84f5bfc1c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/uC137/fb/zipball/6a647bb764b6610b6bae0a435804f4d84f5bfc1c",
-                "reference": "6a647bb764b6610b6bae0a435804f4d84f5bfc1c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.4",
-                "ktamas77/firebase-php": "^2.2",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Ucha19871\\FB\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ucha19871",
-                    "email": "ucha19871@gmail.com"
-                }
-            ],
-            "description": "Firebase REST API easy wrapper for Laravel",
-            "keywords": [
-                "api",
-                "firebase",
-                "framework",
-                "laravel",
-                "rest",
-                "wrapper"
-            ],
-            "time": "2017-05-31T13:51:17+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
