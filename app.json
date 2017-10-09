@@ -1,0 +1,45 @@
+{
+  "name": "something-of-the-day",
+  "description": "Something of the day",
+  "scripts": {
+  },
+  "env": {
+    "APP_DEBUG": {
+      "required": true
+    },
+    "CACHE_DRIVER": {
+      "required": true
+    },
+    "CHATBOT_FB_API_VERSION": {
+      "required": true
+    },
+    "CHATBOT_FB_PAGE_ACCESS_TOKEN": {
+      "required": true
+    },
+    "CHATBOT_FB_VERIFY_TOKEN": {
+      "required": true
+    },
+    "FB_DATABASE": {
+      "required": true
+    },
+    "FB_DATABASE_KEY": {
+      "required": true
+    },
+    "QUEUE_DRIVER": {
+      "required": true
+    },
+    "SESSION_DRIVER": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "scheduler"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
